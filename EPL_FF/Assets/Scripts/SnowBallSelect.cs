@@ -5,29 +5,37 @@ using UnityEngine.UI;
 
 public class SnowBallSelect : MonoBehaviour
 {
-    public List<Sprite> snowballList;
-    public Image displaySnowball;
+    public List<RawImage> snowballList;
+    public RawImage displaySnowball;
     public int index = 0;
 
     private void Start()
     {
-        if (snowballList.Count > 0 && displaySnowball != null)
+        if (snowballList.Count > 0 /*&& displaySnowball != null*/)
         {
-            displaySnowball.sprite = snowballList[0];
+            snowballList[0].gameObject.SetActive(true);
+            snowballList[1].gameObject.SetActive(false);
+            snowballList[2].gameObject.SetActive(false);
+            snowballList[3].gameObject.SetActive(false);
+            snowballList[4].gameObject.SetActive(false);
+            snowballList[5].gameObject.SetActive(false);
+            snowballList[6].gameObject.SetActive(false);
         }
     }
 
     //kiana - this method runs through the snowballs in order (right button)
     public void SwitchSnowballRightButton()
     {
+        snowballList[index].gameObject.SetActive(false);
         index = (index + 1) % snowballList.Count;
-        displaySnowball.sprite = snowballList[index];
+        snowballList[index].gameObject.SetActive(true);
     }
 
     //kiana - this method runs through the snowballs in reverse (left button)
     public void SwitchSnowballLeftButton()
     {
+        snowballList[index].gameObject.SetActive(false);
         index = (index - 1 + snowballList.Count) % snowballList.Count;
-        displaySnowball.sprite = snowballList[index];
+        snowballList[index].gameObject.SetActive(true);
     }
 }
