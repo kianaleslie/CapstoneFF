@@ -11,7 +11,7 @@ public class SnowBallSelect : MonoBehaviour
 
     private void Start()
     {
-        if (snowballList.Count > 0 /*&& displaySnowball != null*/)
+        if (snowballList.Count > 0 && displaySnowball != null)
         {
             snowballList[0].gameObject.SetActive(true);
             snowballList[1].gameObject.SetActive(false);
