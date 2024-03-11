@@ -13,7 +13,7 @@ public class RaceManager : MonoBehaviour
     [SerializeField] TMP_Text powerBallCountText;
     [SerializeField] Button powerBoostButton;
     public bool playingGame;
-    float time;
+    public float time;
 
     // Start is called before the first frame update
     void Start()

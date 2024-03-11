@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using UnityEngine;
 
 // Josh - This script is responsible for saving and loading data to the leaderboard.
-// Josh - subject to change from XML to JSON.
+// Josh - subject to change from XML to JSON (If needed).
 public class SaveManager : MonoBehaviour
 {
     [System.Serializable]
