@@ -103,7 +103,7 @@ public class SnowballManager : MonoBehaviour
         }
     }
 
-    public void MovePlayer() // Called in FixedUpdate
+    public void MovePlayer() // MAXWELL - for left/right player input, auto moving forward, and clamping of left/right movement
     {
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 1.0f * forwardMovementspeed);
 
@@ -129,14 +129,14 @@ public class SnowballManager : MonoBehaviour
         }
     }
 
-    public IEnumerator Accelerate() // Called in Update
+    public IEnumerator Accelerate() // MAXWELL - Slowly accelerates the snowball to it's base top speed
     {
         yield return new WaitForSeconds(0.1f);
         forwardMovementspeed += 0.01f;
         canAccel = true;
     }
 
-    public IEnumerator BoostSnowball()
+    public IEnumerator BoostSnowball() // MAXWELL - Boosts the snowball after it touches a booster object
     {
         forwardMovementspeed = 1.0f;
         yield return new WaitForSeconds(1.0f);
@@ -150,7 +150,7 @@ public class SnowballManager : MonoBehaviour
         }
     }
 
-    public IEnumerator SlowSnowball()
+    public IEnumerator SlowSnowball() // MAXWELL - Slows the snowball after it touches a slower object
     {
         forwardMovementspeed = 0.1f;
         yield return new WaitForSeconds(0.5f);
@@ -160,7 +160,7 @@ public class SnowballManager : MonoBehaviour
         }
     }
 
-    public IEnumerator StopSnowball()
+    public IEnumerator StopSnowball() // MAXWELL - bounces the snowball backwards slightly after it touches a stopper object
     {
         forwardMovementspeed = -0.03f;
         yield return new WaitForSeconds(0.5f);
@@ -174,7 +174,7 @@ public class SnowballManager : MonoBehaviour
         canStop = true;
     }
 
-    public IEnumerator PowerBoostSnowball()
+    public IEnumerator PowerBoostSnowball() // MAXWELL - Power boosts the snowball for 3 seconds
     {
         canBoost = false;
         canSlow = false;
@@ -197,7 +197,7 @@ public class SnowballManager : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other) // MAXWELL - Detects when the player touches any level objects
     {
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if (rb != null)
@@ -238,7 +238,7 @@ public class SnowballManager : MonoBehaviour
         }
     }
 
-    // ON SCREEN BUTTONS
+    // ON SCREEN TOUCH INPUT BUTTONS
     #region
     public void ResetScene() // ResetButton
     {

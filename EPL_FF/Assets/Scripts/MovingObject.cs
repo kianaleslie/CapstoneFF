@@ -12,10 +12,10 @@ public class MovingObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movementSpeed = 0.04f;
+        movementSpeed = 0.01f;
 
         randomizer = Random.Range(1, 3);
-        if (randomizer == 1)
+        if (randomizer == 1) // MAXWELL - Randomly chooses if the object goes left or right to start
         {
             moveLeft = true;
             moveRight = false;
@@ -28,7 +28,7 @@ public class MovingObject : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() // MAXWELL - Moves the object
     {
         if (moveLeft == true)
         {
@@ -48,6 +48,5 @@ public class MovingObject : MonoBehaviour
                 moveRight = false;
             }
         }
-        //gameObject.transform.position = new Vector3(gameObject.transform.position.x - 1.0f * sideMovementSpeed, gameObject.transform.position.y, gameObject.transform.position.z);
     }
 }

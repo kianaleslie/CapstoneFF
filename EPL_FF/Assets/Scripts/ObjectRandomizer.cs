@@ -13,7 +13,7 @@ public class ObjectRandomizer : MonoBehaviour
     void Start()
     {
         Randomizer = Random.Range(1, 4);
-        switch (Randomizer)
+        switch (Randomizer) // MAXWELL - Randomly choses two of three objects to be deactivated
         {
             case 1: // Keep Left Object
                 MiddleObject.SetActive(false);

@@ -43,9 +43,7 @@ public class RaceManager : MonoBehaviour
         if (playingGame == true)
         {
             time += Time.deltaTime;
-
-
-            if (snowballManager.powerBallCount <= 19)
+            if (snowballManager.powerBallCount <= 19)  // MAXWELL - Enables power boosting when enough FUCKING BALLS are collected
             {
                 powerBallCountText.text = snowballManager.powerBallCount.ToString() + "/20";
                 powerBoostButton.interactable = false;
@@ -55,13 +53,10 @@ public class RaceManager : MonoBehaviour
                 powerBoostButton.interactable = true;
                 powerBallCountText.text = "Boost!";
             }
-
-
-
         }
     }
 
-    public IEnumerator Countdown()
+    public IEnumerator Countdown() // MAXWELL - The starting countdown before the race
     {
         yield return new WaitForSeconds(2.0f);
         countdownText.text = "3";
