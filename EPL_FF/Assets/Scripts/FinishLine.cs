@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FinishLine : MonoBehaviour
+public class FinishLine : MonoBehaviour 
 {
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class FinishLine : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other) // MAXWELL - Detects when the player reaches the finish line
     {
         if (other.GetComponentInParent<Rigidbody>().tag == "Player")
         {
@@ -26,12 +26,11 @@ public class FinishLine : MonoBehaviour
             RaceManager temp2 = FindObjectOfType<RaceManager>();
             temp2.playingGame = false;
             temp2.countdownText.text = "GOAL!";
-            StartCoroutine(ReturnToMainMenu());
+            StartCoroutine(GoToNextScene());
         }
     }
 
-
-    public IEnumerator ReturnToMainMenu() // Called in Update
+    public IEnumerator GoToNextScene() // MAXWELL - Sends the player to the next scene
     {
         yield return new WaitForSeconds(5.0f);
         SceneManager.LoadScene(0);

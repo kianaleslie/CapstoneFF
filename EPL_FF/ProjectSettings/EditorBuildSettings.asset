@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b6531d2234b98ea4f99c6c9605f4437e
   - enabled: 1
-    path: Assets/Scenes/HillDemoScene.unity
+    path: Assets/Scenes/Maxwell'sGameplayScene.unity
     guid: 2c9f8932341a9e54d904f2386a400ffb
   m_configObjects: {}
