@@ -19,14 +19,15 @@ public class SnowballManager : MonoBehaviour
     public bool canStop;
 
     public int powerBallCount;
-    public bool canPowerBoost = false;
-    public bool powerBoosting = false;
+    public bool canPowerBoost;
+    public bool powerBoosting;
+    public bool hitObjectWhileSuperBoosting;
 
     // Start is called before the first frame update
     void Start()
     {
         forwardMovementspeed = 0.0f;
-        sideMovementSpeed = 0.15f;
+        sideMovementSpeed = 0.20f;
         playingGame = false;
 
         canAccel = true;
@@ -37,6 +38,7 @@ public class SnowballManager : MonoBehaviour
         powerBallCount = 0;
         canPowerBoost = false;
         powerBoosting = false;
+        hitObjectWhileSuperBoosting = false;
     }
 
     // Update is called once per frame
@@ -81,7 +83,7 @@ public class SnowballManager : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if(powerBallCount >= 20)
+                if (powerBallCount >= 20)
                 {
                     PowerBoostButtonPressed();
                 }
@@ -108,12 +110,18 @@ public class SnowballManager : MonoBehaviour
         if (leftPressed == true)
         {
             //Debug.Log("LEFT");
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x - 1.0f * sideMovementSpeed, gameObject.transform.position.y, gameObject.transform.position.z);
+            if (gameObject.transform.position.x >= -6.3f)
+            {
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x - 1.0f * sideMovementSpeed, gameObject.transform.position.y, gameObject.transform.position.z);
+            }
         }
         else if (rightPressed == true)
         {
             //Debug.Log("RIGHT");
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x + 1.0f * sideMovementSpeed, gameObject.transform.position.y, gameObject.transform.position.z);
+            if (gameObject.transform.position.x <= 6.3f)
+            {
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x + 1.0f * sideMovementSpeed, gameObject.transform.position.y, gameObject.transform.position.z);
+            }
         }
         else
         {
@@ -132,12 +140,12 @@ public class SnowballManager : MonoBehaviour
     {
         forwardMovementspeed = 1.0f;
         yield return new WaitForSeconds(1.0f);
-        if (forwardMovementspeed > 0.5f)
-        {
-            forwardMovementspeed = 0.5f;
-        }
         if (powerBoosting == false)
         {
+            if (forwardMovementspeed > 0.5f)
+            {
+                forwardMovementspeed = 0.5f;
+            }
             canBoost = true;
         }
     }
@@ -154,28 +162,39 @@ public class SnowballManager : MonoBehaviour
 
     public IEnumerator StopSnowball()
     {
-        forwardMovementspeed = 0.0f;
+        forwardMovementspeed = -0.03f;
         yield return new WaitForSeconds(0.5f);
-        if (powerBoosting == false)
+        if (powerBoosting == true)
         {
-            canStop = true;
+            hitObjectWhileSuperBoosting = true;
+            canBoost = true;
+            canSlow = true;
+            sideMovementSpeed = 0.20f;
         }
+        canStop = true;
     }
 
     public IEnumerator PowerBoostSnowball()
     {
         canBoost = false;
         canSlow = false;
-        canStop = false;
+        //canStop = false;
         canPowerBoost = false;
         powerBallCount = 0;
-        forwardMovementspeed = 1.5f;
-        yield return new WaitForSeconds(4.0f);
+        forwardMovementspeed = 1.0f;
+        sideMovementSpeed = 0.30f;
+        yield return new WaitForSeconds(3.0f);
         canBoost = true;
         canSlow = true;
-        canStop = true;
+        //canStop = true;
         powerBoosting = false;
-        forwardMovementspeed = 0.5f;
+        if (hitObjectWhileSuperBoosting == false)
+        {
+            forwardMovementspeed = 0.5f;
+            sideMovementSpeed = 0.20f;
+        }
+
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -210,7 +229,10 @@ public class SnowballManager : MonoBehaviour
             if (other.GetComponentInParent<Rigidbody>().tag == "PowerBall")
             {
                 Debug.Log("BALLS");
-                powerBallCount += 1;
+                if (powerBoosting == false)
+                {
+                    powerBallCount += 1;
+                }
                 Destroy(other.gameObject);
             }
         }
