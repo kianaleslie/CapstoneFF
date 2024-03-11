@@ -34,6 +34,8 @@ public class UIManager : MonoBehaviour
 
     public SaveManager saveManager;
 
+    public RaceManager raceManager;
+
     // Josh - This method is for saving the data that has been recorded from the last game stage and then updating the ranking in real time.
     public void OnSaveButtonClicked()
     {

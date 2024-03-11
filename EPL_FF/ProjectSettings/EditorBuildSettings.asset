@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Maxwell'sGameplayScene.unity
     guid: 2c9f8932341a9e54d904f2386a400ffb
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: 23f58281f84375945a917fd671e89346
   m_configObjects: {}
