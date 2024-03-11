@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Josh - For managing the leaderboard ranking and template placing.
 public class LeaderboardManager : MonoBehaviour
 {
     public GameObject leaderboardPanel;
@@ -10,17 +11,17 @@ public class LeaderboardManager : MonoBehaviour
 
     public void UpdateLeaderboard(List<Entry> entries)
     {
-        // Clear the current leaderboard entries
+        // Josh - Leaderboard Clear.
         foreach (var entry in leaderboardEntries)
         {
             Destroy(entry.gameObject);
         }
         leaderboardEntries.Clear();
 
-        // Sort the list of entries by time
+        // Josh - Sort ranking via lowest time of completion of stage.
         entries.Sort((a, b) => a.time.CompareTo(b.time));
 
-        // Add new entries to the leaderboard
+        // Josh - Adds new entries to the leaderboard.
         foreach (var entryData in entries)
         {
             LeaderboardEntry entry = Instantiate(leaderboardEntryPrefab, leaderboardPanel.transform);
@@ -28,7 +29,7 @@ public class LeaderboardManager : MonoBehaviour
             leaderboardEntries.Add(entry);
         }
 
-        // Fill up remaining slots with "none"
+        // Josh - If there are no entries in the leaderboard then it says none.
         for (int i = leaderboardEntries.Count; i < 10; i++)
         {
             LeaderboardEntry entry = Instantiate(leaderboardEntryPrefab, leaderboardPanel.transform);

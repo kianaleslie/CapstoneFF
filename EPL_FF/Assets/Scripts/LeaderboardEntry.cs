@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LeaderboardEntry : MonoBehaviour
 {
+    // Josh - Formatting setup for Leaderboard.
     public TMP_Text initialsText;
     public TMP_Text timeText;
     public TMP_Text snowballText;
@@ -18,7 +19,6 @@ public class LeaderboardEntry : MonoBehaviour
 
     private string FormatTime(float time)
     {
-        // Assuming time is in seconds
         int minutes = (int)time / 60;
         int seconds = (int)time % 60;
         int milliseconds = (int)((time - (minutes * 60) - seconds) * 100);

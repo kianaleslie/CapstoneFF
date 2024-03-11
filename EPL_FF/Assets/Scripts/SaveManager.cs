@@ -4,6 +4,8 @@ using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
 
+// Josh - This script is responsible for saving and loading data to the leaderboard.
+// Josh - subject to change from XML to JSON.
 public class SaveManager : MonoBehaviour
 {
     [System.Serializable]
@@ -25,6 +27,7 @@ public class SaveManager : MonoBehaviour
         LoadData();
     }
 
+    // Josh - Saving initial, time, snowball type to the xml save file.
     public void SaveData(string initials, float time, string snowballType)
     {
         PlayerData data = new PlayerData
@@ -43,6 +46,7 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    // Josh - Loading data saved from before and showing it to the leaderboard.
     public void LoadData()
     {
         if (File.Exists(filePath))

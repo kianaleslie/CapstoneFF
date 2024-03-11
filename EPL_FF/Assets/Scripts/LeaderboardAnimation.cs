@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LeaderboardAnimation : MonoBehaviour
 {
+    // Josh - This script is for handling the Leaderboard Animation
     public Image m_Image;
     public Sprite[] m_SpriteArray;
     public float m_Speed = .02f;
@@ -37,6 +38,7 @@ public class LeaderboardAnimation : MonoBehaviour
         }
     }
 
+    // Josh - contains all of the sprites needed for the leaderboard to animate
     IEnumerator Func_PlayAnimUI()
     {
         while (!IsDone)
