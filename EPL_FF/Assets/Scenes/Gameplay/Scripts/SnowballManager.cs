@@ -4,9 +4,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SnowballManager : MonoBehaviour
 {
+    [SerializeField] TMP_Text powerBallCountText;
 
     bool leftPressed, rightPressed;
     public float forwardMovementspeed, sideMovementSpeed;
@@ -277,6 +279,7 @@ public class SnowballManager : MonoBehaviour
         powerBallCount = 0;
         canPowerBoost = false;
         powerBoosting = true;
+        powerBallCountText.text = "";
         StartCoroutine(PowerBoostSnowball());
     }
     #endregion

@@ -7,21 +7,33 @@ using UnityEngine.SceneManagement;
 
 public class RaceManager : MonoBehaviour
 {
+    public GlobalDataManager globalDataManager;
     [SerializeField] SnowballManager snowballManager;
     [SerializeField] public TMP_Text countdownText;
     [SerializeField] TMP_Text timeText;
     [SerializeField] TMP_Text powerBallCountText;
     [SerializeField] Button powerBoostButton;
+    [SerializeField] GameObject singlePlayerButtonLayout, coopModeButtonLayout;
     public bool playingGame;
     public float time;
 
     // Start is called before the first frame update
     void Start()
     {
+        globalDataManager = FindObjectOfType<GlobalDataManager>();
         playingGame = false;
         powerBoostButton.interactable = false;
         time = 0.0f;
         StartCoroutine(Countdown());
+
+        if(globalDataManager.playingCoopMode == true)
+        {
+            singlePlayerButtonLayout.SetActive(false);
+        }
+        else
+        {
+            coopModeButtonLayout.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -43,15 +55,18 @@ public class RaceManager : MonoBehaviour
         if (playingGame == true)
         {
             time += Time.deltaTime;
-            if (snowballManager.powerBallCount <= 19)  // MAXWELL - Enables power boosting when enough FUCKING BALLS are collected
+            if (snowballManager.powerBoosting == false)
             {
-                powerBallCountText.text = snowballManager.powerBallCount.ToString() + "/20";
-                powerBoostButton.interactable = false;
-            }
-            else
-            {
-                powerBoostButton.interactable = true;
-                powerBallCountText.text = "Boost!";
+                if (snowballManager.powerBallCount <= 19)  // MAXWELL - Enables power boosting when enough FUCKING BALLS are collected
+                {
+                    powerBallCountText.text = snowballManager.powerBallCount.ToString() + "/20";
+                    powerBoostButton.interactable = false;
+                }
+                else
+                {
+                    powerBoostButton.interactable = true;
+                    powerBallCountText.text = "Boost!";
+                }
             }
         }
     }
