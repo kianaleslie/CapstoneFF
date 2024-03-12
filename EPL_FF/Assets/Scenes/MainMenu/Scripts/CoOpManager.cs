@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 public class CoOpManager : MonoBehaviour
 {
-    public bool isCoOpActive = false;
+    GlobalDataManager globalDataManagerScript;
+
     [SerializeField] RawImage CoOpImage;
 
     void Start()
     {
+        globalDataManagerScript = FindObjectOfType<GlobalDataManager>();
+        globalDataManagerScript.playingCoopMode = false;
         CoOpImage.gameObject.SetActive(false);
     }
     public void ToggleCoOpMode()
     {
-        isCoOpActive = !isCoOpActive;
-        if(isCoOpActive)
+        globalDataManagerScript.playingCoopMode = !globalDataManagerScript.playingCoopMode;
+
+        if(globalDataManagerScript.playingCoopMode)
         {
             CoOpImage.gameObject.SetActive(true);
         }
