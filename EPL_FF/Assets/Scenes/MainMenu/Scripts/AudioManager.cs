@@ -6,17 +6,16 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    //the comments in this script are from when we had multiple levels
 
     public AudioSource audioSource;
     bool isMuted = false;
 
-    //public MuteButtonToggle[] toggleImages;
-    //public GameObject[] mutedImages;
+    public MuteButtonToggle[] toggleImages;
+    public GameObject[] mutedImages;
 
     private void Start()
     {
-        //ToggleMutedImages();
+        ToggleMutedImages();
     }
 
     //kiana - this method is used to mute the audio and is used on the mute button on the main menu
@@ -32,29 +31,29 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.volume = 0.1f;
         }
-        //ToggleMutedImages();
+        ToggleMutedImages();
     }
 
     //kiana - this method is used to toggle each muted image accordingly on the 3 different menu canvases
-    //public void ToggleMutedImages()
-    //{
-    //    //foreach(var toggleImage in toggleImages)
-    //    //{
-    //    //    if(toggleImage != null)
-    //    //    {
-    //    //        GameObject image = mutedImages[toggleImage.muteButtonIndex];
+    public void ToggleMutedImages()
+    {
+        foreach (var toggleImage in toggleImages)
+        {
+            if (toggleImage != null)
+            {
+                GameObject image = mutedImages[toggleImage.muteButtonIndex];
 
-    //    //        if(image != null)
-    //    //        {
-    //    //            image.SetActive(isMuted);
-    //    //        }
-    //    //    }
-    //    //}
-    //}
+                if (image != null)
+                {
+                    image.SetActive(isMuted);
+                }
+            }
+        }
+    }
 }
 
-//[Serializable]
-//public class MuteButtonToggle
-//{
-//    public int muteButtonIndex;
-//}
+[Serializable]
+public class MuteButtonToggle
+{
+    public int muteButtonIndex;
+}
