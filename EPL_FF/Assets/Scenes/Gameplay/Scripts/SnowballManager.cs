@@ -8,6 +8,9 @@ using TMPro;
 
 public class SnowballManager : MonoBehaviour
 {
+    public GlobalDataManager globalDataManager;
+    [SerializeField] public GameObject snowballModel0, snowballModel1, snowballModel2, snowballModel3, snowballModel4, snowballModel5, snowballModel6;
+
     [SerializeField] TMP_Text powerBallCountText;
 
     bool leftPressed, rightPressed;
@@ -28,6 +31,41 @@ public class SnowballManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        globalDataManager = FindObjectOfType<GlobalDataManager>();
+
+        snowballModel0.SetActive(false);
+        snowballModel1.SetActive(false);
+        snowballModel2.SetActive(false);
+        snowballModel3.SetActive(false);
+        snowballModel4.SetActive(false);
+        snowballModel5.SetActive(false);
+        snowballModel6.SetActive(false);
+
+        switch (globalDataManager.selectedSnowballID)
+        {
+            case 0:
+                snowballModel0.SetActive(true);
+                break;
+            case 1:
+                snowballModel1.SetActive(true);
+                break;
+            case 2:
+                snowballModel2.SetActive(true);
+                break;
+            case 3:
+                snowballModel3.SetActive(true);
+                break;
+            case 4:
+                snowballModel4.SetActive(true);
+                break;
+            case 5:
+                snowballModel5.SetActive(true);
+                break;
+            case 6:
+                snowballModel6.SetActive(true);
+                break;
+        }
+
         forwardMovementspeed = 0.0f;
         sideMovementSpeed = 0.20f;
         playingGame = false;

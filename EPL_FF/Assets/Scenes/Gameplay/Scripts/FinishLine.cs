@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour 
 {
+    RaceManager raceManager;
+    GlobalDataManager globalDataManager;
     // Start is called before the first frame update
     void Start()
     {
-
+        raceManager = FindObjectOfType<RaceManager>();
+        globalDataManager = FindObjectOfType<GlobalDataManager>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,7 @@ public class FinishLine : MonoBehaviour
             RaceManager temp2 = FindObjectOfType<RaceManager>();
             temp2.playingGame = false;
             temp2.countdownText.text = "GOAL!";
+            globalDataManager.currentRaceTime = raceManager.time;
             StartCoroutine(GoToNextScene());
         }
     }

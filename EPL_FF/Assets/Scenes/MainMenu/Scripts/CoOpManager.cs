@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class CoOpManager : MonoBehaviour
 {
+    public GlobalDataManager globalDataManager;
+
     public bool isCoOpActive = false;
     [SerializeField] RawImage coOpImage;
     [SerializeField] RawImage deactivatedImage;
 
     void Start()
     {
+        globalDataManager = FindObjectOfType<GlobalDataManager>();
         coOpImage.gameObject.SetActive(false);
         deactivatedImage.gameObject.SetActive(true);
     }
@@ -21,11 +24,13 @@ public class CoOpManager : MonoBehaviour
         isCoOpActive = !isCoOpActive;
         if (isCoOpActive)
         {
+            globalDataManager.playingCoopMode = true;
             coOpImage.gameObject.SetActive(true);
             deactivatedImage.gameObject.SetActive(false);
         }
         else
         {
+            globalDataManager.playingCoopMode = false;
             coOpImage.gameObject.SetActive(false);
             deactivatedImage.gameObject.SetActive(true);
         }
