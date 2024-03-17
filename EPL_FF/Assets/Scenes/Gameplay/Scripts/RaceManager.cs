@@ -86,4 +86,12 @@ public class RaceManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         countdownText.text = "";
     }
+
+    // Josh - Method to save the play time of the player and then load it with the player's initial.
+    public void EndRace()
+    {
+        playingGame = false;
+        PlayerPrefs.SetFloat("RaceTime", time);
+        PlayerPrefs.Save();
+    }
 }
