@@ -36,9 +36,7 @@ public class FinishLine : MonoBehaviour
 
     public IEnumerator GoToNextScene() // MAXWELL - Sends the player to the next scene
     {
-        raceManager.EndRace();
-        // Josh - Just added this line so it saves the time and then loads it into the leaderboard.
         yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 }
