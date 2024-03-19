@@ -17,6 +17,15 @@ public class ProgressTracker : MonoBehaviour
     void Start()
     {
         globalDataManager = FindObjectOfType<GlobalDataManager>();
+
+        updateSnowballImages[0].SetActive(globalDataManager.selectedSnowballID == 0 ? true : false);
+        updateSnowballImages[1].SetActive(globalDataManager.selectedSnowballID == 1 ? true : false);
+        updateSnowballImages[2].SetActive(globalDataManager.selectedSnowballID == 2 ? true : false);
+        updateSnowballImages[3].SetActive(globalDataManager.selectedSnowballID == 3 ? true : false);
+        updateSnowballImages[4].SetActive(globalDataManager.selectedSnowballID == 4 ? true : false);
+        updateSnowballImages[5].SetActive(globalDataManager.selectedSnowballID == 5 ? true : false);
+        updateSnowballImages[6].SetActive(globalDataManager.selectedSnowballID == 6 ? true : false);
+
         handleImage.GetComponent<RawImage>().texture = updateSnowballImages[globalDataManager.selectedSnowballID].gameObject.GetComponent<RawImage>().texture;
     }
 
@@ -31,12 +40,6 @@ public class ProgressTracker : MonoBehaviour
 
         //handleImage.GetComponent<RawImage>().texture = updateSnowballImages[globalDataManager.selectedSnowballID].gameObject.GetComponent<RawImage>().texture;
 
-        //for (int i = 0; i < updateSnowballImages.Length; i++)
-        //{
-        //    if (globalDataManager.selectedSnowballID == 0)
-        //    {
-        //        updateSnowballImages[0].gameObject.SetActive(true);
-        //    }
-        //}
+        
     }
 }
