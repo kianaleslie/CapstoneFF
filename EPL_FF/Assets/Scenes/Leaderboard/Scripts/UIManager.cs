@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -43,8 +44,7 @@ public class UIManager : MonoBehaviour
                           dropdown2.options[dropdown2.value].text +
                           dropdown3.options[dropdown3.value].text;
 
-        // Placeholder time for now
-        float time = 100.45f;
+        float time = PlayerPrefs.GetFloat("RaceTime", 0.0f);
 
         saveManager.SaveData(initials, time, "SnowballType");
 
@@ -53,5 +53,15 @@ public class UIManager : MonoBehaviour
 
         // Deactivate the dropdown panel
         dropdownPanel.SetActive(false);
+
+        StartCoroutine(ChangeSceneAfterTime(10f));
+    }
+
+    // Josh - This method is for changing the scene from the Leaderboard to MainMenu after 10 secs (Adjusting the secs is at the OnSaveButtonClicked Method above.)
+    private IEnumerator ChangeSceneAfterTime(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        SceneManager.LoadScene(0);
     }
 }
