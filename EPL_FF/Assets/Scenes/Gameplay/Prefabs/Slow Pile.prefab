@@ -1777,7 +1777,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7628954449583254707}
-  - component: {fileID: 7348157671748135454}
   m_Layer: 0
   m_Name: Slow Pile
   m_TagString: Untagged
@@ -1804,28 +1803,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &7348157671748135454
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6153269092469794673}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.047912713
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 6366997958459279704}
-    - renderer: {fileID: 2142388298992851232}
-    - renderer: {fileID: 8895855737927699454}
-    - renderer: {fileID: 5806768386786490837}
-  m_Enabled: 1
 --- !u!1 &6241212384336759816
 GameObject:
   m_ObjectHideFlags: 0

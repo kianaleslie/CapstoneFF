@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3867233824147867647}
   - component: {fileID: 3867233824147867640}
   - component: {fileID: 5589937772918837010}
-  - component: {fileID: -4751838592408362535}
   m_Layer: 0
   m_Name: Moose_leftToRight
   m_TagString: Untagged
@@ -139,22 +138,3 @@ MonoBehaviour:
   moveRight: 1
   randomizer: 0
   movementSpeed: 0
---- !u!205 &-4751838592408362535
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3867233824147867641}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.04695834
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 3867233824147867646}
-  m_Enabled: 1

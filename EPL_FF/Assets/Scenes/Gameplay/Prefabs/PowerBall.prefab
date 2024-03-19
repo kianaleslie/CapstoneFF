@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5140194013794628052}
   - component: {fileID: 7617269794667058529}
   - component: {fileID: 837787334493860910}
-  - component: {fileID: 253292661653606748}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -121,25 +120,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!205 &253292661653606748
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5140194013794628054}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.051824227
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 5140194013794628052}
-  m_Enabled: 1
 --- !u!1 &5140194014011386857
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +131,6 @@ GameObject:
   - component: {fileID: 5140194014011386863}
   - component: {fileID: 5140194014011386856}
   - component: {fileID: 5140194014011386862}
-  - component: {fileID: 8161861851792288739}
   m_Layer: 0
   m_Name: PowerBall
   m_TagString: PowerBall
@@ -204,22 +183,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!205 &8161861851792288739
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5140194014011386857}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.047912713
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 5140194013794628052}
-  m_Enabled: 1
