@@ -37,6 +37,6 @@ public class FinishLine : MonoBehaviour
     public IEnumerator GoToNextScene() // MAXWELL - Sends the player to the next scene
     {
         yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 }
