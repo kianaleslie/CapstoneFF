@@ -7,7 +7,7 @@ public class LevelMenuManager : MonoBehaviour
 {
     //this script handled the level selection buttons and updated the ui accrodingly, but we are no longer doing multiple levels
 
-    //[SerializeField] public GameObject frozenLevelCanvas;
+    //[SerializeField] public GameObject mainMenuCanvas;
     //[SerializeField] public GameObject jungleLevelCanvas;
     //[SerializeField] public GameObject volcanoLevelCanvas;
 
@@ -17,13 +17,13 @@ public class LevelMenuManager : MonoBehaviour
     ////kiana - start with the default frozen menu 
     //private void Start()
     //{
-    //    LoadFrozenLevel();
+    //    LoadMainMenu();
     //}
 
     ////kiana - set active the frozen level ui 
-    //public void LoadFrozenLevel()
+    //public void LoadMainMenu()
     //{
-    //    frozenLevelCanvas.SetActive(true);
+    //    mainMenuCanvas.SetActive(true);
     //    jungleLevelCanvas.SetActive(false);
     //    volcanoLevelCanvas.SetActive(false);
     //    leftButton[0].gameObject.SetActive(true);
@@ -37,7 +37,7 @@ public class LevelMenuManager : MonoBehaviour
     ////kiana - set active the jungle level ui 
     //public void LoadJungleLevel()
     //{
-    //    frozenLevelCanvas.SetActive(false);
+    //    mainMenuCanvas.SetActive(false);
     //    jungleLevelCanvas.SetActive(true);
     //    volcanoLevelCanvas.SetActive(false);
     //    leftButton[0].gameObject.SetActive(false);
@@ -51,7 +51,7 @@ public class LevelMenuManager : MonoBehaviour
     ////kiana - set active the volcano level ui 
     //public void LoadVolcanoLevel()
     //{
-    //    frozenLevelCanvas.SetActive(false);
+    //    mainMenuCanvas.SetActive(false);
     //    jungleLevelCanvas.SetActive(false);
     //    volcanoLevelCanvas.SetActive(true);
     //    leftButton[0].gameObject.SetActive(false);
